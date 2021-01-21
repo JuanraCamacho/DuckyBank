@@ -1,0 +1,11 @@
+resources/views/components  elemntos html propios	
+resources/views/vendor/components  elemntos html jetstream	
+
+*Kiosko
+Turno: 1
+Caja: 1
+Operación: Retiro
+select 
+
+*TV turno actual
+select * from 
