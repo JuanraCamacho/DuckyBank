@@ -26,16 +26,20 @@
             </div>
 
             <div class="block mt-4">
-                <label for="remember_me" class="flex items-center">
+                <label for="remember_me" class="flex-1 items-center">
                     <x-jet-checkbox id="remember_me" name="remember" />
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
+                <label for="remember_me" class="flex-1 pl-8 items-center">
+                    <x-jet-checkbox id="remember_me" name="remember" />
+                    <span class="ml-1 pr-3 text-sm text-gray-600">{{ __('Admin') }}</span>
+                </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('register'))
+            <div class="flex items-center justify-end mt-4">                
+                <!-- @if (Route::has('register'))
                     <a href="{{ route('register') }}" class="mr-2 text-sm text-gray-700 underline">Register</a>
-                @endif
+                @endif -->
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
