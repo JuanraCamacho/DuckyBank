@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CashierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,13 +20,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth/login');
 });
-// Route::get('/register', function () {
-//     return view('auth/register');
-// });
-Route::get('/turnos', function () {
-    return view('turno');
-});
+
+Route::get('/cashier', [CashierController::Class, 'index']);
+Route::get('/cashier/create', [CashierController::Class, 'create']);
+Route::get('/cashier/{cashier}', [CashierController::Class, 'show']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
