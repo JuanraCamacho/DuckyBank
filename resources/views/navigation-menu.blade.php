@@ -97,12 +97,12 @@
                                 {{ __('Manage Account') }}
                             </div>
 
-                            <!-- <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                            {{-- <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                                 {{ __('Profile') }}
-                            </x-jet-dropdown-link> -->
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Hola') }}
-                            </x-jet-dropdown-link>
+                            </x-jet-responsive-nav-link> --}}
+                            {{-- <x-jet-dropdown-link href="{{route('cajeros.create')}}">
+                                {{ __('Cajeros') }}
+                            </x-jet-dropdown-link> --}}
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">

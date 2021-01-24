@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\CashierController;
 
 /*
@@ -14,19 +15,21 @@ use App\Http\Controllers\CashierController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::get('/cashier', [CashierController::Class, 'index']);
-Route::get('/cashier/create', [CashierController::Class, 'create']);
-Route::get('/cashier/{cashier}', [CashierController::Class, 'show']);
+Route::get('/', function () {
+    return view('auth/login');
+})->name('inicio');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::get('/cajeros', [UserController::class, 'index'])->middleware(['auth'])->name('cajeros.index');
+Route::get('/cajeros/create', [UserController::class, 'create'])->middleware(['auth'])->name('cajeros.create');
+//Route::post('/cajeros/create', [UserController::class, 'store'])->middleware(['auth'])->name('cajeros.store');
+Route::get('/cajeros/{id}', [UserController::class, 'show'])->name('cajeros.show');
+
+Route::get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-
+require __DIR__.'/auth.php';

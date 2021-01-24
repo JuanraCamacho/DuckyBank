@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title')</title>
-</head>
-<body>
-    <h1>cashier {{$obj}} </h1>
-    @yield('content')
-</body>
-</html>
+@extends('layouts.plantilla')
+@section('title', 'Cajero '.$caj->name)
+
+
+
+@section('content')
+    <a href="{{route('cajeros.index')}}">Cajeros</a>
+    <div class="container">
+        <p><strong>Cajero: </strong>{{$caj->name}}</p>
+        
+    </div>        
+@endsection
