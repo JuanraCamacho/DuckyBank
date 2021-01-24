@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
+use App\Providers\RouteServiceProvider;
 
 class RegisteredUserController extends Controller
 {
@@ -37,15 +38,26 @@ class RegisteredUserController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|confirmed|min:8',
         ]);
-
-        Auth::login($user = User::create([
+       $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-        ]));
+        ]);
 
-        event(new Registered($user));
+        // Auth::login($user = User::create([
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'password' => Hash::make($request->password),
+        // ]));
 
-        return redirect(RouteServiceProvider::HOME);
+        //event(new Registered($user));
+
+        //return redirect(RouteServiceProvider::HOME);
+        $users = DB::table('users')
+                ->where('isAdmin', '<>', true)
+                ->get();
+                //return $users;
+
+        return view('cashier.index', compact('users'));
     }
 }

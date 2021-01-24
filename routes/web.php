@@ -26,7 +26,7 @@ Route::get('/', function () {
 Route::get('/cajeros', [UserController::class, 'index'])->middleware(['auth'])->name('cajeros.index');
 Route::get('/cajeros/create', [UserController::class, 'create'])->middleware(['auth'])->name('cajeros.create');
 //Route::post('/cajeros/create', [UserController::class, 'store'])->middleware(['auth'])->name('cajeros.store');
-Route::get('/cajeros/{id}', [UserController::class, 'show'])->name('cajeros.show');
+Route::get('/cajeros/{id}', [UserController::class, 'destroy'])->name('cajeros.destroy');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

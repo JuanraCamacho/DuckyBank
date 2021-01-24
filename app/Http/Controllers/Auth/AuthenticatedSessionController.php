@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
 use App\Http\Requests\Auth\LoginRequest;
+use Illuminate\Support\Facades\Redirect;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -18,6 +19,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
+        //dd(hola);
         return view('auth.login');
     }
 
@@ -32,14 +34,13 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-
+        //$caj = $request;
         $users = DB::table('users')
-            ->select('isAdmin')
-            ->where('email', $request->email)
-            ->get();
-            return $users;
+                ->where('isAdmin', '<>', true)
+                ->get();
+                //return $users;
 
-        return redirect(RouteServiceProvider::HOME);
+        return view('cashier.index', compact('users'));
     }
 
     /**

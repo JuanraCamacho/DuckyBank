@@ -14,6 +14,7 @@ class UserController extends Controller
                 ->where('isAdmin', '<>', true)
                 ->get();
         //return $caj;
+        
         return view('cashier.index', compact('caj'));
     }
     public function create()
@@ -23,18 +24,22 @@ class UserController extends Controller
                 ->get();
         //return $cashier;
         return view('cashier.create', compact('caj'));
-    }
-
-    // public function store()
-    // {
-
-    // }
+    }    
 
     public function show($id)
     {
         $caj = User::find($id);
         //return $cashier;        
         return view('cashier.show', compact('caj'));
+    }
 
+    public function destroy($id)
+    {
+        DB::table('users')->where('id', '=', $id)->delete();    
+        $users = DB::table('users')
+                ->where('isAdmin', '<>', true)
+                ->get();
+                //return $users;
+        return view('cashier.index', compact('users'));
     }
 }
