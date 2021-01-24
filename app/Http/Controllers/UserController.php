@@ -10,12 +10,12 @@ class UserController extends Controller
 {
     public function index()
     {
-        $caj = DB::table('users')
+        $users = DB::table('users')
                 ->where('isAdmin', '<>', true)
                 ->get();
-        //return $caj;
-        
-        return view('cashier.index', compact('caj'));
+                //return $users;
+
+        return view('cashier.index', compact('users'));        
     }
     public function create()
     {
@@ -39,7 +39,14 @@ class UserController extends Controller
         $users = DB::table('users')
                 ->where('isAdmin', '<>', true)
                 ->get();
-                //return $users;
-        return view('cashier.index', compact('users'));
+            
+                $admin = DB::table('users')
+                ->where('isAdmin', '<>', false)
+                ->get();
+                $nameAdmin = $admin[0]->name;
+
+        
+        return view('cashier.index', compact('users','nameAdmin'));
+        //return view('cashier.index', compact('users'));
     }
 }

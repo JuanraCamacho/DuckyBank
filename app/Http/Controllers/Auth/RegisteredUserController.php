@@ -49,6 +49,13 @@ class RegisteredUserController extends Controller
         //     'email' => $request->email,
         //     'password' => Hash::make($request->password),
         // ]));
+        $admin = DB::table('users')
+                ->where('isAdmin', '<>', false)
+                ->get();
+                $nameAdmin = $admin[0]->name;
+
+        
+        //return view('cashier.index', compact('users','nameAdmin'));
 
         //event(new Registered($user));
 
@@ -57,7 +64,8 @@ class RegisteredUserController extends Controller
                 ->where('isAdmin', '<>', true)
                 ->get();
                 //return $users;
+                return view('cashier.index', compact('users','nameAdmin'));
 
-        return view('cashier.index', compact('users'));
+        //return view('cashier.index', compact('users'));
     }
 }

@@ -23,8 +23,8 @@ Route::get('/login', [AuthenticatedSessionController::class, 'create'])
 
 // Route::post('/cajeros', [AuthenticatedSessionController::class, 'store'])
 // ->middleware('guest');
-Route::post('/cajeros', [AuthenticatedSessionController::class, 'store'])
-                ->middleware('guest')->name('login');
+
+Route::post('/cajeros', [AuthenticatedSessionController::class, 'store'])->middleware('guest')->name('login');
 
 Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
                 ->middleware('guest')
