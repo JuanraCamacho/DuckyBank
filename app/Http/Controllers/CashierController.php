@@ -22,6 +22,22 @@ class CashierController extends Controller
     }
     public function mostrarCajero()
     {
+        // $users = DB::table('sessions')                
+        //         ->get();
+
+        // $users = DB::table('users')
+        // ->where('isAdmin', '<>', true)
+        // ->get();
+        //         $isAdmin = $users[0]->user_id;
+        //         if ($isAdmin == null) 
+        //         {
+        //             return redirect('/');
+        //         } 
+        //         else 
+        //         {
+        //             return $next($request);                    
+        //         }   
+
         $users = DB::table('users')
                 ->where('isAdmin', '<>', true)
                 ->get();

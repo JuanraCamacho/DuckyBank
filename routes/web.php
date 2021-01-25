@@ -33,7 +33,7 @@ Route::get('/cajeros/create', [UserController::class, 'create'])->middleware(['a
 //Route::post('/cajeros/create', [UserController::class, 'store'])->middleware(['auth'])->name('cajeros.store');
 Route::get('/cajeros/{id}', [UserController::class, 'destroy'])->name('cajeros.destroy');
 
-Route::get('/cajeros', [CashierController::class, 'mostrarCajero'])->name('fakeLogin');;
+Route::get('/cajeros', [CashierController::class, 'mostrarCajero'])->middleware('logeado')->name('fakeLogin');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

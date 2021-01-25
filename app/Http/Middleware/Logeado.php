@@ -20,8 +20,17 @@ class Logeado
         $users = DB::table('sessions')                
                 ->get();
                 $isLog = $users[0]->user_id;
+                //dd($isLog);
                 if ($isLog == null) 
                 {
+                    // No es admin
+                    $f = DB::table('users')                
+                    ->get();
+                    dd($f);
+                    // if()
+                    // {
+
+                    // }
                     return redirect('/');
                 } 
                 else 
