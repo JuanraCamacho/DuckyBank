@@ -31,9 +31,7 @@
                     </th>                    
                     <th scope="col" class="relative px-6 py-3">
                       {{-- <span class="sr-only">Edit</span> --}}
-                      @if (Route::has('register'))
-                      <a href="{{ route('register') }}" class="text-green-500 hover:text-indigo-900">Nuevo cajero</a>
-                      @endif                                              
+                      <a href="{{ route('showAddCajero') }}" class="text-green-500 hover:text-indigo-900">Nuevo Cajero</a>                                             
                     </th>
                   </tr>
                 </thead>
@@ -82,36 +80,27 @@
               <thead class="bg-gray-50">
                 <tr>
                   <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Nombre
-                  </th>
-                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Email
-                  </th>                    
+                    Caja
+                  </th>                                    
                   <th scope="col" class="relative px-6 py-3">
-                    {{-- <span class="sr-only">Edit</span> --}}
-                    @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="text-green-500 hover:text-indigo-900">Nuevo cajero</a>
-                    @endif                                              
+                    <a href="{{ route('showAddCaja') }}" class="text-green-500 hover:text-indigo-900">Nueva Caja</a>                                           
                   </th>
                 </tr>
               </thead>
               <tbody class="bg-white divide-y divide-gray-200">
-                  @foreach ($users as $item)
+                  @foreach ($cajas as $item)
                 <tr>
                   <td class="px-6 py-4 whitespace-nowrap">
                     <div class="flex items-center">                        
                       <div class="ml-4">
                         <div class="text-sm font-medium text-gray-900">
-                          {{$item->name}}
+                          {{$item->caja}}
                         </div>                          
                       </div>
                     </div>
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-gray-900">{{$item->email}}</div>                      
-                  </td>                                     
+                  </td>                                                      
                   <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <a href="{{ route('cajeros.destroy', $item->id)}}" class="text-indigo-600 hover:text-indigo-900">Eliminar</a>
+                    <a href="{{ route('cajas.destroy', $item->id)}}" class="text-indigo-600 hover:text-indigo-900">Eliminar</a>
                   </td>
                 </tr>   
                 @endforeach   

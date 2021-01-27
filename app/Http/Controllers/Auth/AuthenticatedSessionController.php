@@ -30,21 +30,38 @@ class AuthenticatedSessionController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(LoginRequest $request)
-    {
-        $request->authenticate();
+    {       
+       
+        $request->authenticate();        
 
-        //return $request;
+        $request->session()->regenerate();
 
-        //$request->session()->regenerate();
-        //return $request;
+        return redirect()->route('fakeLogin');
         
-        if(auth()->user()->isAdmin)
-        {
-            return redirect()->route('fakeLogin');
-        }
-        else{
-            return redirect()->route('cajas');
-        }        
+        // if(auth()->user()->isAdmin)
+        // {
+        //     return redirect()->route('fakeLogin');
+        // }
+        // else{
+        //     return redirect()->route('turn.index');
+        // }   
+                
+        
+
+
+        // $request->authenticate();        
+
+        // $request->session()->regenerate();
+        
+        // return redirect()->route('cajas');
+        
+        // if(auth()->user()->isAdmin)
+        // {
+        //     return redirect()->route('fakeLogin');
+        // }
+        // else{
+        //     return redirect()->route('cajas');
+        // }        
     }
 
     /**
