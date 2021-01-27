@@ -41,11 +41,16 @@ class CashierController extends Controller
         $users = DB::table('users')
                 ->where('isAdmin', '<>', true)
                 ->get();
+                
+                    // $user = Auth::user();
+                    // dd($user);
+                    
+                $nameAdmin = auth()->user()->name;
 
-                $admin = DB::table('users')
-                ->where('isAdmin', '<>', false)
-                ->get();
-                $nameAdmin = $admin[0]->name;
+                // $admin = DB::table('users')
+                // ->where('isAdmin', '<>', false)
+                // ->get();
+                // $nameAdmin = $admin[0]->name;
 
         
         return view('cashier.index', compact('users','nameAdmin'));

@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class Logeado
 {
@@ -17,25 +18,28 @@ class Logeado
      */
     public function handle(Request $request, Closure $next)
     {        
-        $users = DB::table('sessions')                
-                ->get();
-                $isLog = $users[0]->user_id;
-                //dd($isLog);
-                if ($isLog == null) 
-                {
-                    // No es admin
-                    $f = DB::table('users')                
-                    ->get();
-                    dd($f);
-                    // if()
-                    // {
-
-                    // }
-                    return redirect('/');
-                } 
-                else 
-                {
-                    return $next($request);                    
-                }                
+        if (Auth::check())
+        {    
+            //return $next($request);
+            $isAdmin = auth()->user()->isAdmin;            
+            if($isAdmin <> 1)
+            {     
+                //Normalazo 
+                      
+                //dd('hola');    
+                //return route('cajas');
+                return $next($request);
+                //return redirect('/cajas');
+            }
+            else
+            {      
+                //Admin          
+                return $next($request);
+            }            
+        }
+        else
+        {
+            return redirect('/');        
+        }                   
     }
 }

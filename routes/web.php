@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CashierController;
+use App\Http\Controllers\TcajeroController;
 use App\Http\Controllers\fakeLoginController;
 
 /*
@@ -34,6 +35,8 @@ Route::get('/cajeros/create', [UserController::class, 'create'])->middleware(['a
 Route::get('/cajeros/{id}', [UserController::class, 'destroy'])->name('cajeros.destroy');
 
 Route::get('/cajeros', [CashierController::class, 'mostrarCajero'])->middleware('logeado')->name('fakeLogin');
+
+Route::get('/cajas', [TcajeroController::class, 'index'])->middleware('logeado')->name('cajas');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
