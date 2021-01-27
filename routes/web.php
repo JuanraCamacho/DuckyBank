@@ -21,6 +21,7 @@ use App\Http\Controllers\fakeLoginController;
 Route::get('/', function () {
     return view('auth/login');
 });
+Route::get('/cajeros2',[CashierController::class, 'redirect']);
 
 Route::get('/cajeros', [CashierController::class, 'index'])->middleware(['auth'])->name('fakeLogin');
 Route::get('/nuevocajero', [CashierController::class, 'showAddCajero'])->middleware(['auth'])->name('showAddCajero');

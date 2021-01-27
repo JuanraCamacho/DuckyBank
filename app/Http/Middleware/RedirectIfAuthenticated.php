@@ -19,23 +19,33 @@ class RedirectIfAuthenticated
      * @return mixed
      */
     public function handle(Request $request, Closure $next, ...$guards)
-    {        
-        if(Auth::check())
-        {
-            $f=auth()->user()->isAdmin;    
-            dd($f); 
-        } 
-        else
-        {
-            dd('noet¿ntro');
-        }
-        $f=auth()->user()->isAdmin;    
-        return $f;      
-        // dd($f)  ;   
+    {      
+        // $user = auth()->user();
+        // return $user;
+        // $user = Auth::user()->id();
+        
+        // dd($user);
+        // dd(auth()->user()->name); 
+        // dd($guards); 
+        // if(auth()->user()->name)
+        // {
+        //     $f=auth()->user()->isAdmin;    
+        //     // dd($f); 
+        //     return $f;
+        //     dd('si entro');
+        // } 
+        // else
+        // {
+        //     dd('noet¿ntro');
+        // }
+        // $f=auth()->user()->isAdmin;    
+        // return $f;      
+        // // dd($f)  ;   
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
+            if (Auth::guard($guard)->check()) {     
+                //return redirect()->route('fakeLogin');           
                 return redirect(RouteServiceProvider::HOME);
             }
         }        

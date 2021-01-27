@@ -8,7 +8,23 @@ class TcajeroController extends Controller
 {
     public function index()
     {
-        $nameAdmin = auth()->user()->name;
-        return view('cashier.cajas', compact('nameAdmin'));
+        // $isAdmin = auth()->user()->isAdmin;
+        $isAdmin = auth()->user()->isAdmin;
+        //dd($idAdmin);
+        //return redirect()->route('fakeLogin');
+
+        if($isAdmin)
+        {
+            dd('admin');
+            //dd('si entro');
+            //return redirect()->route('fakeLogin');
+        }
+        else
+        {
+            dd('no Admin');
+            //return view('turn.index', compact('nameAdmin'));
+        }
+                // dd($nameAdmin);
+        
     }
 }

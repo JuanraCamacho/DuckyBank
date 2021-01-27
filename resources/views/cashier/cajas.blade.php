@@ -15,5 +15,5 @@
 @endsection
 
 @section('content')
-    <h1>Cajas</h1>
+    <h1>Cajass</h1>
 @endsection

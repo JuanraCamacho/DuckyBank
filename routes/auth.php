@@ -15,9 +15,11 @@ use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])
                 ->middleware('guest')                
+                //->middleware(['auth'])
                 ->name('login');
 
 Route::post('/cajeros', [AuthenticatedSessionController::class, 'store'])
+                //->middleware(['auth'])
                 ->middleware('guest')
                 ->name('login');
 
