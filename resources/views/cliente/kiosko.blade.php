@@ -3,7 +3,7 @@
         
             <div class="grid grid-rows-3 grid-flow-col gap-4">
                 
-                <div class="col-span-2 border-4">2</div>
+                {{-- <div class="col-span-2 border-4">2</div> --}}
                 <div class="row-span-2 col-span-2 border-4">
                 <x-auth-validation-errors class="mb-4" :errors="$errors" />
                     <form method="POST" action="{{ route('turnos') }}">

@@ -17,16 +17,16 @@
 @section('content')
 <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-label class="mb-4 text-center text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl ..." value="{{ __('Selecciona turno') }}" />
+            <x-jet-label class="mb-4 text-center text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl ..." value="{{ __('') }}" />
         </x-slot>
 
         <x-jet-label class="mb-4 text-center text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl ..." value="{{ __('Selecciona caja') }}" />
 
         <x-jet-validation-errors class="mb-4" />
 
-        <div class="mb-4 font-medium text-sm text-green-600">
+        {{-- <div class="mb-4 font-medium text-sm text-green-600">
             Texto
-        </div>    
+        </div>     --}}
 
         <form method="POST" action="{{ route('empleado-caja') }}">
             @csrf
