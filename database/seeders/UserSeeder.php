@@ -23,17 +23,17 @@ class UserSeeder extends Seeder
             'password' => Hash::make('12345678'),
             'isAdmin' => 1,
             ]);
-            User::create([
-                'name' => 'Juan',
-                'email' => 'juan@gmail.com',
-                'password' => Hash::make('123'),
-                'isAdmin' => 0,
-            ]);
-            User::create([
-                'name' => 'Jose',
-                'email' => 'jose@gmail.com',
-                'password' => Hash::make('123'),
-                'isAdmin' => 0,
-            ]);
+            // User::create([
+            //     'name' => 'Juan',
+            //     'email' => 'juan@gmail.com',
+            //     'password' => Hash::make('123'),
+            //     'isAdmin' => 0,
+            // ]);
+            // User::create([
+            //     'name' => 'Jose',
+            //     'email' => 'jose@gmail.com',
+            //     'password' => Hash::make('123'),
+            //     'isAdmin' => 0,
+            // ]);
     }
 }

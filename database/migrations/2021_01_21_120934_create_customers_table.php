@@ -15,8 +15,10 @@ class CreateCustomersTable extends Migration
     {
         Schema::create('tblcustomers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('tbloperation_id')->constrained();      
+            $table->foreignId('tbloperation_id')->constrained(); 
+            $table->string('name');  
             $table->string('folio', 30);
+            $table->boolean('attended');              
             $table->timestamps();
 
             //$table->foreign('idOperation')->references('idOperation')->on('tbloperations');

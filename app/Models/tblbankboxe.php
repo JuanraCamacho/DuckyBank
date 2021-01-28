@@ -9,5 +9,6 @@ class tblbankboxe extends Model
 {
     protected $fillable = [
         'caja',    
+        'isAvailable', 
     ];
 }

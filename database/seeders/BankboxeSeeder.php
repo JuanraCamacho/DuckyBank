@@ -15,7 +15,8 @@ class BankboxeSeeder extends Seeder
     public function run()
     {
         tblbankboxe::create([
-            'caja' => 1,            
+            'caja' => 1, 
+            'isAvailable' => true,           
         ]);        
     }
 }

@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class tblcustomer extends Model
 {
     protected $fillable = [
-        'tbloperation_id',    
-        'folio',               
+        'tbloperation_id',  
+        'name',  
+        'folio',      
+        'attended',         
     ];
 }

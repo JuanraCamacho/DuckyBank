@@ -14,9 +14,10 @@ class CustomerSeeder extends Seeder
      */
     public function run()
     {
-        tblcustomer::create([
-            'tbloperation_id' => '1',            
-            'folio' => '000001',                                   
-        ]);        
+        // tblcustomer::create([
+        //     'tbloperation_id' => '1',            
+        //     'folio' => '000001',  
+        //'attended' => 0,                                 
+        // ]);        
     }
 }

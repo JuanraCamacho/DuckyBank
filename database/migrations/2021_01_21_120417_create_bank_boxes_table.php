@@ -15,7 +15,8 @@ class CreateBankBoxesTable extends Migration
     {
         Schema::create('tblbankboxes', function (Blueprint $table) {
             $table->id();
-            $table->integer('caja');            
+            $table->integer('caja');                        
+            $table->boolean('isAvailable');                       
             $table->timestamps();
         });
     }

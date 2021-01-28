@@ -16,10 +16,9 @@ class CreateCashierBankboxesTable extends Migration
         Schema::create('tblcashierbankboxers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('tblbankboxe_id')->constrained();
-            $table->boolean('isAvailable');
+            $table->foreignId('tblbankboxe_id')->constrained();            
             $table->dateTime('openDatetime');
-            $table->dateTime('closeDatetime');            
+            $table->dateTime('closeDatetime')->nullable();            
             $table->timestamps();
         });
     }

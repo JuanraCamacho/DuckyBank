@@ -18,11 +18,13 @@ class BoxController extends Controller
     public function addCaja(Request $request)
     {
         $request->validate([
-            'caja' => 'required|max:2',            
+            'caja' => 'required|unique:App\Models\tblbankboxe,caja|max:2',  
+                     
         ]);
 
        $user = tblbankboxe::create([
             'caja' => $request->caja,            
+            'isAvailable' => true,            
         ]);
 
         return redirect()->route('fakeLogin');                
@@ -33,5 +35,16 @@ class BoxController extends Controller
         DB::table('tblbankboxes')->where('id', '=', $id)->delete(); 
 
         return redirect()->route('fakeLogin');                                       
+    }
+
+    public function empleado_caja(Request $request){
+        
+        
+        $request->validate([
+            'caja' => 'required',
+
+        ]);
+        
+        return redirect()->route('atender_caja', ['id' => $request->caja ]);
     }
 }

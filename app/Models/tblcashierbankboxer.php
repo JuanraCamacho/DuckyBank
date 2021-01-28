@@ -9,8 +9,7 @@ class tblcashierbankboxer extends Model
 {
     protected $fillable = [
         'user_id',    
-        'tblbankboxe_id',    
-        'isAvailable',    
+        'tblbankboxe_id',               
         'openDatetime',    
         'closeDatetime',               
     ];

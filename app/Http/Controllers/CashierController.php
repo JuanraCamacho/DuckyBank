@@ -12,23 +12,17 @@ class CashierController extends Controller
 {
     public function redirect()
     {
-        //return auth()->user();
+        //not use        
         if(auth()->user()->isAdmin)
         {
-            dd('admin');
+            dd('adminn');
         }
         else{
             dd('no admin');
-        }
-
-        // return redirect()->route('fakeLogin');
-        // dd(auth()->user()->isAdmin);
-        // dd('F');
+        }       
     }
     public function index()
-    {
-        dd('cashier');
-        
+    {                
         $users = DB::table('users')
                 ->where('isAdmin', '<>', true)
                 ->get();
@@ -37,23 +31,7 @@ class CashierController extends Controller
                     ->get();                                
                         
             $nameAdmin = auth()->user()->name;
-            return view('cashier.index', compact('users','cajas','nameAdmin'));
-            
-
-            // if(auth()->user()->isAdmin)
-            // {
-            //     dd('admin');
-            //     //return redirect()->route('fakeLogin'); 
-
-            //     return view('cashier.index', compact('users','cajas','nameAdmin'));
-            // }
-            // else
-            // {
-            //     dd('hola');
-            //     return redirect()->route('turno.index');                  
-            // }
-                            
-                            
+            return view('cashier.index', compact('users','cajas','nameAdmin'));                                                                    
     }
 
     public function showAddCajero()

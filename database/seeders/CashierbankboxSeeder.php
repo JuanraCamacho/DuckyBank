@@ -14,12 +14,12 @@ class CashierbankboxSeeder extends Seeder
      */
     public function run()
     {
-        tblcashierbankboxer::create([
-            'user_id' => '1',            
-            'tblbankboxe_id' => '1',                                   
-            'isAvailable' => true,                                   
-            'openDatetime' => '2021-01-21 14:29:42',                                   
-            'closeDatetime' => '2021-01-21 14:29:42',                                   
-        ]);          
+        // tblcashierbankboxer::create([
+        //     'user_id' => '1',            
+        //     'tblbankboxe_id' => '1',                                   
+        //     'isAvailable' => true,                                   
+        //     'openDatetime' => '2021-01-21 14:29:42',                                   
+        //     'closeDatetime' => '2021-01-21 14:29:42',                                   
+        // ]);          
     }
 }

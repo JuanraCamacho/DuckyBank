@@ -14,9 +14,9 @@ class TurnSeeder extends Seeder
      */
     public function run()
     {
-        tblturn::create([
-            'tblcashierbankboxer_id' => 1,
-            'tblcustomer_id' => 1,            
-        ]);        
+        // tblturn::create([
+        //     'tblcashierbankboxer_id' => 1,
+        //     'tblcustomer_id' => 1,            
+        // ]);        
     }
 }
